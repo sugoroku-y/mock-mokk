@@ -1,4 +1,5 @@
 {
+  "name": "mock-server",
   "private": true,
   "dependencies": {
     "ts-node": "^10.4.0"
