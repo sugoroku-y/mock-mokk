@@ -1,0 +1,288 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parseOptions empty location: toConsoleOutputMatchingSnapshot:error 1`] = `
+Array [
+  Array [
+    "locationが空です。: =test
+",
+  ],
+]
+`;
+
+exports[`parseOptions empty location: toConsoleOutputMatchingSnapshot:log 1`] = `
+Array [
+  Array [
+    "Version: mock-server 0.0.1
+Usage:
+  npx mock-server [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
+  npx mock-server --help
+
+Description:
+  簡易HTTPサーバーを起動します。
+
+Options:
+  --help, -h
+    このヘルプを表示します。
+  --port, -p #listen_port
+    サーバーのポート番号を指定します。
+  --index, -i index.html
+    URLが/で終わっていた場合に補完されるファイル名を指定します。
+    /で区切ることで複数のファイル名を指定できます。
+  [--] [/location/to/resource=path/to/file/or/directory...]
+    レスポンスとして返すファイルの位置を設定するエントリーを指定します。
+    {URLのパス部分}={割り当てられるファイル、もしくはディレクトリーの位置}の形式で指定します。
+    URLのパスは/から始まっている必要があります。
+    ファイル/ディレクトリーに相対パスを指定した場合は実行時のカレントディレクトリを基準とします。
+    ファイル/ディレクトリーに$/で始まるパスを指定した場合はホームディレクトリに$/以降のパスを連結したものになります。
+    ファイル/ディレクトリーには$ENVの形で環境変数を指定することができます。
+    ファイル/ディレクトリーに$そのものを指定したい場合には$$としてください。
+    ファイルは指定された順に検索していき、最初に見つかったものを返します。
+",
+  ],
+]
+`;
+
+exports[`parseOptions empty path: toConsoleOutputMatchingSnapshot:error 1`] = `
+Array [
+  Array [
+    "pathが空です。: test=
+",
+  ],
+]
+`;
+
+exports[`parseOptions empty path: toConsoleOutputMatchingSnapshot:log 1`] = `
+Array [
+  Array [
+    "Version: mock-server 0.0.1
+Usage:
+  npx mock-server [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
+  npx mock-server --help
+
+Description:
+  簡易HTTPサーバーを起動します。
+
+Options:
+  --help, -h
+    このヘルプを表示します。
+  --port, -p #listen_port
+    サーバーのポート番号を指定します。
+  --index, -i index.html
+    URLが/で終わっていた場合に補完されるファイル名を指定します。
+    /で区切ることで複数のファイル名を指定できます。
+  [--] [/location/to/resource=path/to/file/or/directory...]
+    レスポンスとして返すファイルの位置を設定するエントリーを指定します。
+    {URLのパス部分}={割り当てられるファイル、もしくはディレクトリーの位置}の形式で指定します。
+    URLのパスは/から始まっている必要があります。
+    ファイル/ディレクトリーに相対パスを指定した場合は実行時のカレントディレクトリを基準とします。
+    ファイル/ディレクトリーに$/で始まるパスを指定した場合はホームディレクトリに$/以降のパスを連結したものになります。
+    ファイル/ディレクトリーには$ENVの形で環境変数を指定することができます。
+    ファイル/ディレクトリーに$そのものを指定したい場合には$$としてください。
+    ファイルは指定された順に検索していき、最初に見つかったものを返します。
+",
+  ],
+]
+`;
+
+exports[`parseOptions help: toConsoleOutputMatchingSnapshot:error 1`] = `Array []`;
+
+exports[`parseOptions help: toConsoleOutputMatchingSnapshot:log 1`] = `
+Array [
+  Array [
+    "Version: mock-server 0.0.1
+Usage:
+  npx mock-server [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
+  npx mock-server --help
+
+Description:
+  簡易HTTPサーバーを起動します。
+
+Options:
+  --help, -h
+    このヘルプを表示します。
+  --port, -p #listen_port
+    サーバーのポート番号を指定します。
+  --index, -i index.html
+    URLが/で終わっていた場合に補完されるファイル名を指定します。
+    /で区切ることで複数のファイル名を指定できます。
+  [--] [/location/to/resource=path/to/file/or/directory...]
+    レスポンスとして返すファイルの位置を設定するエントリーを指定します。
+    {URLのパス部分}={割り当てられるファイル、もしくはディレクトリーの位置}の形式で指定します。
+    URLのパスは/から始まっている必要があります。
+    ファイル/ディレクトリーに相対パスを指定した場合は実行時のカレントディレクトリを基準とします。
+    ファイル/ディレクトリーに$/で始まるパスを指定した場合はホームディレクトリに$/以降のパスを連結したものになります。
+    ファイル/ディレクトリーには$ENVの形で環境変数を指定することができます。
+    ファイル/ディレクトリーに$そのものを指定したい場合には$$としてください。
+    ファイルは指定された順に検索していき、最初に見つかったものを返します。
+",
+  ],
+]
+`;
+
+exports[`parseOptions no entry: toConsoleOutputMatchingSnapshot:error 1`] = `
+Array [
+  Array [
+    "エントリーが指定されていません。
+",
+  ],
+]
+`;
+
+exports[`parseOptions no entry: toConsoleOutputMatchingSnapshot:log 1`] = `
+Array [
+  Array [
+    "Version: mock-server 0.0.1
+Usage:
+  npx mock-server [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
+  npx mock-server --help
+
+Description:
+  簡易HTTPサーバーを起動します。
+
+Options:
+  --help, -h
+    このヘルプを表示します。
+  --port, -p #listen_port
+    サーバーのポート番号を指定します。
+  --index, -i index.html
+    URLが/で終わっていた場合に補完されるファイル名を指定します。
+    /で区切ることで複数のファイル名を指定できます。
+  [--] [/location/to/resource=path/to/file/or/directory...]
+    レスポンスとして返すファイルの位置を設定するエントリーを指定します。
+    {URLのパス部分}={割り当てられるファイル、もしくはディレクトリーの位置}の形式で指定します。
+    URLのパスは/から始まっている必要があります。
+    ファイル/ディレクトリーに相対パスを指定した場合は実行時のカレントディレクトリを基準とします。
+    ファイル/ディレクトリーに$/で始まるパスを指定した場合はホームディレクトリに$/以降のパスを連結したものになります。
+    ファイル/ディレクトリーには$ENVの形で環境変数を指定することができます。
+    ファイル/ディレクトリーに$そのものを指定したい場合には$$としてください。
+    ファイルは指定された順に検索していき、最初に見つかったものを返します。
+",
+  ],
+]
+`;
+
+exports[`parseOptions no equal: toConsoleOutputMatchingSnapshot:error 1`] = `
+Array [
+  Array [
+    "エントリーに\`='がありません。: test
+",
+  ],
+]
+`;
+
+exports[`parseOptions no equal: toConsoleOutputMatchingSnapshot:log 1`] = `
+Array [
+  Array [
+    "Version: mock-server 0.0.1
+Usage:
+  npx mock-server [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
+  npx mock-server --help
+
+Description:
+  簡易HTTPサーバーを起動します。
+
+Options:
+  --help, -h
+    このヘルプを表示します。
+  --port, -p #listen_port
+    サーバーのポート番号を指定します。
+  --index, -i index.html
+    URLが/で終わっていた場合に補完されるファイル名を指定します。
+    /で区切ることで複数のファイル名を指定できます。
+  [--] [/location/to/resource=path/to/file/or/directory...]
+    レスポンスとして返すファイルの位置を設定するエントリーを指定します。
+    {URLのパス部分}={割り当てられるファイル、もしくはディレクトリーの位置}の形式で指定します。
+    URLのパスは/から始まっている必要があります。
+    ファイル/ディレクトリーに相対パスを指定した場合は実行時のカレントディレクトリを基準とします。
+    ファイル/ディレクトリーに$/で始まるパスを指定した場合はホームディレクトリに$/以降のパスを連結したものになります。
+    ファイル/ディレクトリーには$ENVの形で環境変数を指定することができます。
+    ファイル/ディレクトリーに$そのものを指定したい場合には$$としてください。
+    ファイルは指定された順に検索していき、最初に見つかったものを返します。
+",
+  ],
+]
+`;
+
+exports[`parseOptions not exist: toConsoleOutputMatchingSnapshot:error 1`] = `
+Array [
+  Array [
+    "pathが見つかりません。: /test=test/not-exist
+",
+  ],
+]
+`;
+
+exports[`parseOptions not exist: toConsoleOutputMatchingSnapshot:log 1`] = `
+Array [
+  Array [
+    "Version: mock-server 0.0.1
+Usage:
+  npx mock-server [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
+  npx mock-server --help
+
+Description:
+  簡易HTTPサーバーを起動します。
+
+Options:
+  --help, -h
+    このヘルプを表示します。
+  --port, -p #listen_port
+    サーバーのポート番号を指定します。
+  --index, -i index.html
+    URLが/で終わっていた場合に補完されるファイル名を指定します。
+    /で区切ることで複数のファイル名を指定できます。
+  [--] [/location/to/resource=path/to/file/or/directory...]
+    レスポンスとして返すファイルの位置を設定するエントリーを指定します。
+    {URLのパス部分}={割り当てられるファイル、もしくはディレクトリーの位置}の形式で指定します。
+    URLのパスは/から始まっている必要があります。
+    ファイル/ディレクトリーに相対パスを指定した場合は実行時のカレントディレクトリを基準とします。
+    ファイル/ディレクトリーに$/で始まるパスを指定した場合はホームディレクトリに$/以降のパスを連結したものになります。
+    ファイル/ディレクトリーには$ENVの形で環境変数を指定することができます。
+    ファイル/ディレクトリーに$そのものを指定したい場合には$$としてください。
+    ファイルは指定された順に検索していき、最初に見つかったものを返します。
+",
+  ],
+]
+`;
+
+exports[`parseOptions not start slash: toConsoleOutputMatchingSnapshot:error 1`] = `
+Array [
+  Array [
+    "locationは\`/'で始まっている必要があります。: test=test
+",
+  ],
+]
+`;
+
+exports[`parseOptions not start slash: toConsoleOutputMatchingSnapshot:log 1`] = `
+Array [
+  Array [
+    "Version: mock-server 0.0.1
+Usage:
+  npx mock-server [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
+  npx mock-server --help
+
+Description:
+  簡易HTTPサーバーを起動します。
+
+Options:
+  --help, -h
+    このヘルプを表示します。
+  --port, -p #listen_port
+    サーバーのポート番号を指定します。
+  --index, -i index.html
+    URLが/で終わっていた場合に補完されるファイル名を指定します。
+    /で区切ることで複数のファイル名を指定できます。
+  [--] [/location/to/resource=path/to/file/or/directory...]
+    レスポンスとして返すファイルの位置を設定するエントリーを指定します。
+    {URLのパス部分}={割り当てられるファイル、もしくはディレクトリーの位置}の形式で指定します。
+    URLのパスは/から始まっている必要があります。
+    ファイル/ディレクトリーに相対パスを指定した場合は実行時のカレントディレクトリを基準とします。
+    ファイル/ディレクトリーに$/で始まるパスを指定した場合はホームディレクトリに$/以降のパスを連結したものになります。
+    ファイル/ディレクトリーには$ENVの形で環境変数を指定することができます。
+    ファイル/ディレクトリーに$そのものを指定したい場合には$$としてください。
+    ファイルは指定された順に検索していき、最初に見つかったものを返します。
+",
+  ],
+]
+`;

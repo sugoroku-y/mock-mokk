@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`async .not.toExitProcess process exit with code: 0, expected to exit with code: 0: false 1`] = `"Received function exit process with 0"`;
+
+exports[`async .not.toExitProcess process exit with code: 0, expected to exit without code: false 1`] = `"Received function exit process, but not expected."`;
+
+exports[`async .not.toExitProcess process exit with code:-1, expected to exit with code:-1: false 1`] = `"Received function exit process with -1"`;
+
+exports[`async .not.toExitProcess process exit with code:-1, expected to exit without code: false 1`] = `"Received function exit process, but not expected."`;
+
+exports[`async .not.toExitProcess process exit without code, expected to exit with code: 0: false 1`] = `"Received function exit process with 0"`;
+
+exports[`async .not.toExitProcess process exit without code, expected to exit without code: false 1`] = `"Received function exit process, but not expected."`;
+
+exports[`async .toExitProcess process does not exit, expected to exit with code: 0: false 1`] = `"Received function did not exit process."`;
+
+exports[`async .toExitProcess process does not exit, expected to exit with code:-1: false 1`] = `"Received function did not exit process."`;
+
+exports[`async .toExitProcess process does not exit, expected to exit without code: false 1`] = `"Received function did not exit process."`;
+
+exports[`async .toExitProcess process exit with code: 0, expected to exit with code:-1: false 1`] = `
+"Excepted process exit code: -1
+Received process exit code: 0"
+`;
+
+exports[`async .toExitProcess process exit with code:-1, expected to exit with code: 0: false 1`] = `
+"Excepted process exit code: 0
+Received process exit code: -1"
+`;
+
+exports[`async .toExitProcess process exit without code, expected to exit with code:-1: false 1`] = `
+"Excepted process exit code: -1
+Received process exit code: 0"
+`;
+
+exports[`no-wait .not.toExitProcess process exit with code: 0, expected to exit with code: 0: false 1`] = `"Received function exit process with 0"`;
+
+exports[`no-wait .not.toExitProcess process exit with code: 0, expected to exit without code: false 1`] = `"Received function exit process, but not expected."`;
+
+exports[`no-wait .not.toExitProcess process exit with code:-1, expected to exit with code:-1: false 1`] = `"Received function exit process with -1"`;
+
+exports[`no-wait .not.toExitProcess process exit with code:-1, expected to exit without code: false 1`] = `"Received function exit process, but not expected."`;
+
+exports[`no-wait .not.toExitProcess process exit without code, expected to exit with code: 0: false 1`] = `"Received function exit process with 0"`;
+
+exports[`no-wait .not.toExitProcess process exit without code, expected to exit without code: false 1`] = `"Received function exit process, but not expected."`;
+
+exports[`no-wait .toExitProcess process does not exit, expected to exit with code: 0: false 1`] = `"Received function did not exit process."`;
+
+exports[`no-wait .toExitProcess process does not exit, expected to exit with code:-1: false 1`] = `"Received function did not exit process."`;
+
+exports[`no-wait .toExitProcess process does not exit, expected to exit without code: false 1`] = `"Received function did not exit process."`;
+
+exports[`no-wait .toExitProcess process exit with code: 0, expected to exit with code:-1: false 1`] = `
+"Excepted process exit code: -1
+Received process exit code: 0"
+`;
+
+exports[`no-wait .toExitProcess process exit with code:-1, expected to exit with code: 0: false 1`] = `
+"Excepted process exit code: 0
+Received process exit code: -1"
+`;
+
+exports[`no-wait .toExitProcess process exit without code, expected to exit with code:-1: false 1`] = `
+"Excepted process exit code: -1
+Received process exit code: 0"
+`;

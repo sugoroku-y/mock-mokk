@@ -35,20 +35,6 @@ function resolvePathSpec(path: string): string {
   );
 }
 
-export class ShowUsageException extends Error {
-  constructor(readonly code: number, message?: string) {
-    super(message);
-  }
-}
-
-function exitOrThrow(code: number): never {
-  if (process.env.JEST_WORKER_ID) {
-    throw new ShowUsageException(code);
-  }
-  // istanbul ignore next
-  process.exit(code);
-}
-
 /**
  * コマンドラインを解析して必要な情報を取得する。
  *
@@ -109,7 +95,7 @@ export function parseOptions(args?: Iterable<string>) {
   // --help/-hが指定されたときはヘルプ文字列を出力して終了
   if ('help' in options) {
     console.log(options[helpString]);
-    exitOrThrow(0);
+    process.exit(0);
   }
 
   // ファイルエントリの解析
@@ -156,7 +142,7 @@ export function parseOptions(args?: Iterable<string>) {
   if (errors.length) {
     console.error(errors.map(s => `${s}\n`).join(''));
     console.log(options[helpString]);
-    exitOrThrow(-1);
+    process.exit(-1);
   }
   return {
     port: options.port,

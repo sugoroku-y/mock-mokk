@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`.toConsoleOutputMatchingSnapshot debug false 1`] = `
+[Error: [2mexpect([22m[38;2;0;95;95m[48;2;215;255;255mreceived[49m[39m[2m).[22mtoMatchSnapshot[2m([22m[1mhint[22m[2m)[22m
+
+Snapshot name: \`.toConsoleOutputMatchingSnapshot debug false: [1mtoConsoleOutputMatchingSnapshot:debug[22m 1\`
+
+[38;2;128;0;128m[48;2;255;215;255m- Snapshot  - 1[49m[39m
+[38;2;0;95;95m[48;2;215;255;255m+ Received  + 1[49m[39m
+
+[2m  Array [[22m
+[2m    Array [[22m
+[38;2;128;0;128m[48;2;255;215;255m-     "test: debug false",[49m[39m
+[38;2;0;95;95m[48;2;215;255;255m+     "test: debug false:x",[49m[39m
+[2m    ],[22m
+[2m  ][22m]
+`;
+
+exports[`.toConsoleOutputMatchingSnapshot debug false: toConsoleOutputMatchingSnapshot:debug 1`] = `
+Array [
+  Array [
+    "test: debug false",
+  ],
+]
+`;
+
+exports[`.toConsoleOutputMatchingSnapshot debug true: toConsoleOutputMatchingSnapshot:debug 1`] = `
+Array [
+  Array [
+    "test: debug true",
+  ],
+]
+`;
+
+exports[`.toConsoleOutputMatchingSnapshot error false 1`] = `
+[Error: [2mexpect([22m[38;2;0;95;95m[48;2;215;255;255mreceived[49m[39m[2m).[22mtoMatchSnapshot[2m([22m[1mhint[22m[2m)[22m
+
+Snapshot name: \`.toConsoleOutputMatchingSnapshot error false: [1mtoConsoleOutputMatchingSnapshot:error[22m 1\`
+
+[38;2;128;0;128m[48;2;255;215;255m- Snapshot  - 1[49m[39m
+[38;2;0;95;95m[48;2;215;255;255m+ Received  + 1[49m[39m
+
+[2m  Array [[22m
+[2m    Array [[22m
+[38;2;128;0;128m[48;2;255;215;255m-     "test: error false",[49m[39m
+[38;2;0;95;95m[48;2;215;255;255m+     "test: error false:x",[49m[39m
+[2m    ],[22m
+[2m  ][22m]
+`;
+
+exports[`.toConsoleOutputMatchingSnapshot error false: toConsoleOutputMatchingSnapshot:error 1`] = `
+Array [
+  Array [
+    "test: error false",
+  ],
+]
+`;
+
+exports[`.toConsoleOutputMatchingSnapshot error true: toConsoleOutputMatchingSnapshot:error 1`] = `
+Array [
+  Array [
+    "test: error true",
+  ],
+]
+`;
+
+exports[`.toConsoleOutputMatchingSnapshot info false 1`] = `
+[Error: [2mexpect([22m[38;2;0;95;95m[48;2;215;255;255mreceived[49m[39m[2m).[22mtoMatchSnapshot[2m([22m[1mhint[22m[2m)[22m
+
+Snapshot name: \`.toConsoleOutputMatchingSnapshot info false: [1mtoConsoleOutputMatchingSnapshot:info[22m 1\`
+
+[38;2;128;0;128m[48;2;255;215;255m- Snapshot  - 1[49m[39m
+[38;2;0;95;95m[48;2;215;255;255m+ Received  + 1[49m[39m
+
+[2m  Array [[22m
+[2m    Array [[22m
+[38;2;128;0;128m[48;2;255;215;255m-     "test: info false",[49m[39m
+[38;2;0;95;95m[48;2;215;255;255m+     "test: info false:x",[49m[39m
+[2m    ],[22m
+[2m  ][22m]
+`;
+
+exports[`.toConsoleOutputMatchingSnapshot info false: toConsoleOutputMatchingSnapshot:info 1`] = `
+Array [
+  Array [
+    "test: info false",
+  ],
+]
+`;
+
+exports[`.toConsoleOutputMatchingSnapshot info true: toConsoleOutputMatchingSnapshot:info 1`] = `
+Array [
+  Array [
+    "test: info true",
+  ],
+]
+`;
+
+exports[`.toConsoleOutputMatchingSnapshot log false 1`] = `
+[Error: [2mexpect([22m[38;2;0;95;95m[48;2;215;255;255mreceived[49m[39m[2m).[22mtoMatchSnapshot[2m([22m[1mhint[22m[2m)[22m
+
+Snapshot name: \`.toConsoleOutputMatchingSnapshot log false: [1mtoConsoleOutputMatchingSnapshot:log[22m 1\`
+
+[38;2;128;0;128m[48;2;255;215;255m- Snapshot  - 1[49m[39m
+[38;2;0;95;95m[48;2;215;255;255m+ Received  + 1[49m[39m
+
+[2m  Array [[22m
+[2m    Array [[22m
+[38;2;128;0;128m[48;2;255;215;255m-     "test: log false",[49m[39m
+[38;2;0;95;95m[48;2;215;255;255m+     "test: log false:x",[49m[39m
+[2m    ],[22m
+[2m  ][22m]
+`;
+
+exports[`.toConsoleOutputMatchingSnapshot log false: toConsoleOutputMatchingSnapshot:log 1`] = `
+Array [
+  Array [
+    "test: log false",
+  ],
+]
+`;
+
+exports[`.toConsoleOutputMatchingSnapshot log true: toConsoleOutputMatchingSnapshot:log 1`] = `
+Array [
+  Array [
+    "test: log true",
+  ],
+]
+`;
+
+exports[`.toConsoleOutputMatchingSnapshot warn false 1`] = `
+[Error: [2mexpect([22m[38;2;0;95;95m[48;2;215;255;255mreceived[49m[39m[2m).[22mtoMatchSnapshot[2m([22m[1mhint[22m[2m)[22m
+
+Snapshot name: \`.toConsoleOutputMatchingSnapshot warn false: [1mtoConsoleOutputMatchingSnapshot:warn[22m 1\`
+
+[38;2;128;0;128m[48;2;255;215;255m- Snapshot  - 1[49m[39m
+[38;2;0;95;95m[48;2;215;255;255m+ Received  + 1[49m[39m
+
+[2m  Array [[22m
+[2m    Array [[22m
+[38;2;128;0;128m[48;2;255;215;255m-     "test: warn false",[49m[39m
+[38;2;0;95;95m[48;2;215;255;255m+     "test: warn false:x",[49m[39m
+[2m    ],[22m
+[2m  ][22m]
+`;
+
+exports[`.toConsoleOutputMatchingSnapshot warn false: toConsoleOutputMatchingSnapshot:warn 1`] = `
+Array [
+  Array [
+    "test: warn false",
+  ],
+]
+`;
+
+exports[`.toConsoleOutputMatchingSnapshot warn true: toConsoleOutputMatchingSnapshot:warn 1`] = `
+Array [
+  Array [
+    "test: warn true",
+  ],
+]
+`;
