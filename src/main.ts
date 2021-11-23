@@ -1,5 +1,5 @@
-import {mockServer} from './mockServer';
+import {mokkServer} from './mokkServer';
 import {parseOptions} from './parseOptions';
 
 const {port, index, files} = parseOptions();
-mockServer(port, index, files);
+mokkServer(port, index, files);

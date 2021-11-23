@@ -3,12 +3,12 @@ import {Server} from 'http';
 import axios from 'axios';
 import {thrown} from './thrown';
 import './toConsoleOutputMatchingSnapshot';
-import {mockServer} from '../src/mockServer';
+import {mokkServer} from '../src/mokkServer';
 
-describe('mock-server', () => {
+describe('mock-mokk', () => {
   let app: Server;
   beforeAll(async () => {
-    app = await mockServer(
+    app = await mokkServer(
       50000,
       ['index.html', 'index.htm'],
       [['/', resolve('test', '$')]]
@@ -48,7 +48,7 @@ describe('mock-server', () => {
   test('port used', async () => {
     expect(
       await thrown(async () => {
-        await mockServer(
+        await mokkServer(
           50000,
           ['index.html', 'index.htm'],
           [['/', resolve('test', '$')]]

@@ -1,7 +1,7 @@
 import express from 'express';
 import {Server} from 'http';
 
-export function mockServer(
+export function mokkServer(
   port: number,
   index: string[],
   files: [string, string][]
