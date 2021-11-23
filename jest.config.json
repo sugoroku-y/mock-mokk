@@ -11,6 +11,7 @@
     }
   },
   "collectCoverageFrom": [
+    "src/mockServer.ts",
     "src/parseOptions.ts"
   ]
 }
