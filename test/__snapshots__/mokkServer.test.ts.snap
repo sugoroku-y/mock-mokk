@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[` 1`] = `
+Array [
+  Array [
+    "50000番ポートで開始します。",
+  ],
+]
+`;
+
 exports[`mock-mokk get 1`] = `
 "<!DOCTYPE html>
 <html lang=\\"ja\\">

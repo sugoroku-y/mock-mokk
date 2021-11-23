@@ -8,11 +8,13 @@ import {mokkServer} from '../src/mokkServer';
 describe('mock-mokk', () => {
   let app: Server;
   beforeAll(async () => {
-    app = await mokkServer(
-      50000,
-      ['index.html', 'index.htm'],
-      [['/', resolve('test', '$')]]
-    );
+    expect(async () => {
+      app = await mokkServer(
+        50000,
+        ['index.html', 'index.htm'],
+        [['/', resolve('test', '$')]]
+      );
+    }).toConsoleOutputMatchingSnapshot();
   });
   afterAll(async () => {
     await new Promise<void>((resolve, reject) => {
