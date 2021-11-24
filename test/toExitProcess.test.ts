@@ -215,3 +215,23 @@ describe('exception in .toExitProcess', () => {
     ).toThrow('async');
   });
 });
+
+describe('exception in .not.toExitProcess', () => {
+  test('normal', () => {
+    expect(() => {
+      expect((): void => {
+        throw new Error('normal');
+      }).not.toExitProcess();
+    }).toThrow('normal');
+  });
+  test('async', async () => {
+    expect(
+      await thrown(async () => {
+        await expect(async (): Promise<void> => {
+          await new Promise(r => setTimeout(r, 5000));
+          throw new Error('async');
+        }).not.toExitProcess();
+      })
+    ).toThrow('async');
+  });
+});
