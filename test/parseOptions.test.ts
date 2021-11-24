@@ -27,7 +27,7 @@ describe('parseOptions', () => {
     });
   });
   test('env', () => {
-    process.env.TESTENV = 'test/$';
+    process.env['TESTENV'] = 'test/$';
     expect(parseOptions(['/=$TESTENV'])).toEqual({
       port: 50000,
       index: ['index.html', 'index.htm'],
@@ -38,7 +38,7 @@ describe('parseOptions', () => {
       index: ['index.html', 'index.htm'],
       files: [['/', resolve('test', '$')]],
     });
-    delete process.env.TESTENV;
+    delete process.env['TESTENV'];
     expect(parseOptions(['/=test/$TESTENV$'])).toEqual({
       port: 50000,
       index: ['index.html', 'index.htm'],

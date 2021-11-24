@@ -3,6 +3,15 @@ import {homedir} from 'os';
 import {resolve, sep} from 'path';
 import {parse, helpString, unnamed} from 'optionalist';
 
+declare global {
+  interface String {
+    replace(
+      re: RegExp,
+      replacer: (match: string, ...captures: (string | undefined)[]) => string
+    ): string;
+  }
+}
+
 /**
  * パスを指定する文字列を絶対パスに解決する。
  *
@@ -28,8 +37,9 @@ function resolvePathSpec(path: string): string {
           // `$$`は`$`1文字
           return '$';
         }
+        const name = bracketedName ?? bareName;
         // `$ENV`、`${ENV}`は環境変数ENVの値に、ENVがなければ空文字列
-        return process.env[bracketedName ?? bareName] ?? ''; //
+        return (name && process.env[name]) || ''; //
       }
     )
   );

@@ -1,5 +1,3 @@
-import {inspect} from 'util';
-
 class ProcessExitException {}
 
 class ProcessExitContext {
@@ -13,14 +11,15 @@ class ProcessExitContext {
 
   constructor(private readonly code?: number) {}
 
-  check(state?: {ex: unknown}): jest.CustomMatcherResult {
+  check(state?: { ex: unknown }): jest.CustomMatcherResult {
     this.checked = true;
     let pass = false;
     let message = '';
     BLOCK: {
       if (this.process_exit.mock.calls.length > 0) {
         // process.exitが1度でも呼ばれた
-        const actual = this.process_exit.mock.calls[0][0] ?? 0;
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        const actual = this.process_exit.mock.calls[0]![0] ?? 0;
         if (this.code === undefined) {
           // 期待する終了コードが指定されていなければ、終了コードが何であっても成功
           pass = true;
@@ -46,7 +45,7 @@ class ProcessExitContext {
       message = `Received function did not exit process.`;
       break BLOCK;
     }
-    return {pass, message: () => message};
+    return { pass, message: () => message };
   }
 
   dispose() {
@@ -61,9 +60,6 @@ function toExitProcess(
   received: () => unknown,
   code?: number
 ): jest.CustomMatcherResult | Promise<jest.CustomMatcherResult> {
-  const process_exit = jest.spyOn(process, 'exit').mockImplementation(() => {
-    throw new ProcessExitException();
-  });
   const context = new ProcessExitContext(code);
   try {
     const result = received();
@@ -73,7 +69,7 @@ function toExitProcess(
           await result;
           return context.check();
         } catch (ex: unknown) {
-          return context.check({ex});
+          return context.check({ ex });
         } finally {
           context.dispose();
         }
@@ -81,19 +77,21 @@ function toExitProcess(
     }
     return context.check(undefined);
   } catch (ex) {
-    return context.check({ex});
+    return context.check({ ex });
   } finally {
     context.dispose();
   }
 }
-expect.extend({toExitProcess});
+expect.extend({ toExitProcess });
 
 declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace jest {
+    // eslint-disable-next-line @typescript-eslint/ban-types
     interface Matchers<R, T = {}> {
       toExitProcess(
         code?: number
-      ): T extends (...args: any[]) => any
+      ): T extends (...args: unknown[]) => unknown
         ? ReturnType<T> extends Promise<unknown>
           ? Promise<R>
           : R

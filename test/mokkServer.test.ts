@@ -8,7 +8,7 @@ import {mokkServer} from '../src/mokkServer';
 describe('mock-mokk', () => {
   let app: Server;
   beforeAll(async () => {
-    expect(async () => {
+    await expect(async () => {
       app = await mokkServer(
         50000,
         ['index.html', 'index.htm'],

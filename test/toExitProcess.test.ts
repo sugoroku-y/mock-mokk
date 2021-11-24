@@ -195,3 +195,23 @@ describe('async .not.toExitProcess', () => {
     }
   );
 });
+
+describe('exception in .toExitProcess', () => {
+  test('normal', () => {
+    expect(() => {
+      expect((): void => {
+        throw new Error('normal');
+      }).toExitProcess();
+    }).toThrow('normal');
+  });
+  test('async', async () => {
+    expect(
+      await thrown(async () => {
+        await expect(async (): Promise<void> => {
+          await new Promise(r => setTimeout(r, 5000));
+          throw new Error('async');
+        }).toExitProcess();
+      })
+    ).toThrow('async');
+  });
+});

@@ -12,6 +12,8 @@
   },
   "collectCoverageFrom": [
     "src/mokkServer.ts",
-    "src/parseOptions.ts"
+    "src/parseOptions.ts",
+    "test/toExitProcess.ts",
+    "test/toConsoleOutputMatchingSnapshot.ts"
   ]
 }
