@@ -1,4 +1,4 @@
-import {toMatchSnapshot} from 'jest-snapshot';
+import { toMatchSnapshot } from 'jest-snapshot';
 
 function toConsoleOutputMatchingSnapshot(
   this: jest.MatcherContext,
@@ -34,7 +34,7 @@ function toConsoleOutputMatchingSnapshot(
     }
   }
 }
-expect.extend({toConsoleOutputMatchingSnapshot});
+expect.extend({ toConsoleOutputMatchingSnapshot });
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace

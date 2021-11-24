@@ -1,9 +1,9 @@
-import {resolve} from 'path';
-import {Server} from 'http';
+import { resolve } from 'path';
+import { Server } from 'http';
 import axios from 'axios';
-import {thrown} from './thrown';
+import { thrown } from './thrown';
 import './toConsoleOutputMatchingSnapshot';
-import {mokkServer} from '../src/mokkServer';
+import { mokkServer } from '../src/mokkServer';
 
 describe('mock-mokk', () => {
   let app: Server;

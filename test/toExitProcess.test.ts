@@ -1,4 +1,4 @@
-import {thrown} from './thrown';
+import { thrown } from './thrown';
 import './toExitProcess';
 
 jest.setTimeout(10000);

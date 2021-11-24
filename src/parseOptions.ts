@@ -1,7 +1,7 @@
-import {existsSync} from 'fs';
-import {homedir} from 'os';
-import {resolve, sep} from 'path';
-import {parse, helpString, unnamed} from 'optionalist';
+import { existsSync } from 'fs';
+import { homedir } from 'os';
+import { resolve, sep } from 'path';
+import { parse, helpString, unnamed } from 'optionalist';
 
 declare global {
   interface String {

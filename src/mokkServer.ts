@@ -1,5 +1,5 @@
 import express from 'express';
-import {Server} from 'http';
+import { Server } from 'http';
 
 export function mokkServer(
   port: number,
@@ -9,7 +9,7 @@ export function mokkServer(
   // serverの設定
   const app = express();
 
-  const staticOptions = {index};
+  const staticOptions = { index };
   for (const [location, path] of files) {
     app.use(location, express.static(path, staticOptions));
   }

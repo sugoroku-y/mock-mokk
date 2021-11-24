@@ -1,6 +1,6 @@
-import {homedir} from 'os';
-import {resolve} from 'path';
-import {parseOptions} from '../src/parseOptions';
+import { homedir } from 'os';
+import { resolve } from 'path';
+import { parseOptions } from '../src/parseOptions';
 import './toExitProcess';
 import './toConsoleOutputMatchingSnapshot';
 
