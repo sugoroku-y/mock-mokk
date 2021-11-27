@@ -91,11 +91,11 @@ declare global {
     interface Matchers<R, T = {}> {
       toExitProcess(
         code?: number
-      ): T extends (...args: unknown[]) => unknown
-        ? ReturnType<T> extends Promise<unknown>
+      ): T extends (...args: unknown[]) => infer TR
+        ? TR extends Promise<unknown>
           ? Promise<R>
           : R
-        : R;
+        : never;
     }
   }
 }
