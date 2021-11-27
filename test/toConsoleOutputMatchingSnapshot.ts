@@ -8,6 +8,7 @@ function toConsoleOutputMatchingSnapshot(
   const method = jest.spyOn(console, name).mockImplementation();
   const snapshot = () => {
     return toMatchSnapshot.call(
+      // 実体は同じだが型に互換性がないので強制的にキャスト
       this as unknown as ThisParameterType<typeof toMatchSnapshot>,
       method.mock.calls,
       `toConsoleOutputMatchingSnapshot:${name}`
