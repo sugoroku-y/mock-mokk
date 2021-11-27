@@ -3,7 +3,7 @@
 exports[` 1`] = `
 Array [
   Array [
-    "50000番ポートで開始します。",
+    "50001番ポートで開始します。",
   ],
 ]
 `;
@@ -39,4 +39,4 @@ Array [
 
 exports[`mock-mokk not found: toConsoleOutputMatchingSnapshot:log 1`] = `Array []`;
 
-exports[`mock-mokk port used 1`] = `"listen EADDRINUSE: address already in use :::50000"`;
+exports[`mock-mokk port used 1`] = `"listen EADDRINUSE: address already in use :::50001"`;

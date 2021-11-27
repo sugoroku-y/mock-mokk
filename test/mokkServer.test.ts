@@ -6,11 +6,12 @@ import './toConsoleOutputMatchingSnapshot';
 import { mokkServer } from '../src/mokkServer';
 
 describe('mock-mokk', () => {
+  const PORT_FOR_TEST = 50001;
   let app: Server;
   beforeAll(async () => {
     await expect(async () => {
       app = await mokkServer(
-        50000,
+        PORT_FOR_TEST,
         ['index.html', 'index.htm'],
         [['/', resolve('test', '$')]]
       );
@@ -29,7 +30,7 @@ describe('mock-mokk', () => {
         const client = axios.create();
         expect(
           await (
-            await client.get('http://localhost:50000')
+            await client.get(`http://localhost:${PORT_FOR_TEST}`)
           ).data
         ).toMatchSnapshot();
       }).toConsoleOutputMatchingSnapshot('log');
@@ -41,7 +42,7 @@ describe('mock-mokk', () => {
         expect(
           await thrown(async () => {
             const client = axios.create();
-            await client.get('http://localhost:50000/notexist.txt');
+            await client.get(`http://localhost:${PORT_FOR_TEST}/notexist.txt`);
           })
         ).toThrowErrorMatchingSnapshot();
       }).toConsoleOutputMatchingSnapshot('log');
@@ -51,7 +52,7 @@ describe('mock-mokk', () => {
     expect(
       await thrown(async () => {
         await mokkServer(
-          50000,
+          PORT_FOR_TEST,
           ['index.html', 'index.htm'],
           [['/', resolve('test', '$')]]
         );
