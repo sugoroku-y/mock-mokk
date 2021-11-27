@@ -27,15 +27,15 @@ describe('.toConsoleOutputMatchingSnapshot', () => {
     }) => {
       if (pass) {
         expect(() =>
-          console[name ?? 'log'](`test: ${name} ${pass}`)
+          console[name ?? 'log'](`test: ${name} ${pass}`),
         ).toConsoleOutputMatchingSnapshot(name);
       } else {
         expect(() => {
           expect(() =>
-            console[name ?? 'log'](`test: ${name} ${pass}:x`)
+            console[name ?? 'log'](`test: ${name} ${pass}:x`),
           ).toConsoleOutputMatchingSnapshot(name);
         }).toFailMatchingSnapshot();
       }
-    }
+    },
   );
 });

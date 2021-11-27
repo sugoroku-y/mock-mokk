@@ -58,7 +58,7 @@ class ProcessExitContext {
 function toExitProcess(
   this: jest.MatcherContext,
   received: () => unknown,
-  code?: number
+  code?: number,
 ): jest.CustomMatcherResult | Promise<jest.CustomMatcherResult> {
   const context = new ProcessExitContext(code);
   try {
@@ -90,7 +90,7 @@ declare global {
     // eslint-disable-next-line @typescript-eslint/ban-types
     interface Matchers<R, T = {}> {
       toExitProcess(
-        code?: number
+        code?: number,
       ): T extends (...args: unknown[]) => infer TR
         ? TR extends Promise<unknown>
           ? Promise<R>

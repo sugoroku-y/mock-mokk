@@ -7,7 +7,7 @@ declare global {
   interface String {
     replace(
       re: RegExp,
-      replacer: (match: string, ...captures: (string | undefined)[]) => string
+      replacer: (match: string, ...captures: (string | undefined)[]) => string,
     ): string;
   }
 }
@@ -40,8 +40,8 @@ function resolvePathSpec(path: string): string {
         const name = bracketedName ?? bareName;
         // `$ENV`、`${ENV}`は環境変数ENVの値に、ENVがなければ空文字列
         return (name && process.env[name]) || ''; //
-      }
-    )
+      },
+    ),
   );
 }
 
@@ -99,7 +99,7 @@ export function parseOptions(args?: Iterable<string>) {
     `,
       },
     },
-    args
+    args,
   );
 
   // --help/-hが指定されたときはヘルプ文字列を出力して終了

@@ -3,7 +3,7 @@ import { toMatchSnapshot } from 'jest-snapshot';
 function toConsoleOutputMatchingSnapshot(
   this: jest.MatcherContext,
   received: () => unknown,
-  name: 'log' | 'debug' | 'info' | 'warn' | 'error' = 'log'
+  name: 'log' | 'debug' | 'info' | 'warn' | 'error' = 'log',
 ): jest.CustomMatcherResult | Promise<jest.CustomMatcherResult> {
   const method = jest.spyOn(console, name).mockImplementation();
   const snapshot = () => {
@@ -11,7 +11,7 @@ function toConsoleOutputMatchingSnapshot(
       // 実体は同じだが型に互換性がないので強制的にキャスト
       this as unknown as ThisParameterType<typeof toMatchSnapshot>,
       method.mock.calls,
-      `toConsoleOutputMatchingSnapshot:${name}`
+      `toConsoleOutputMatchingSnapshot:${name}`,
     );
   };
   let restorable = true;
@@ -43,7 +43,7 @@ declare global {
     // eslint-disable-next-line @typescript-eslint/ban-types
     interface Matchers<R, T = {}> {
       toConsoleOutputMatchingSnapshot(
-        name?: 'log' | 'debug' | 'info' | 'warn' | 'error'
+        name?: 'log' | 'debug' | 'info' | 'warn' | 'error',
       ): T extends (...args: unknown[]) => infer TR
         ? TR extends Promise<unknown>
           ? Promise<R>

@@ -4,7 +4,7 @@ import { Server } from 'http';
 export function mokkServer(
   port: number,
   index: string[],
-  files: [string, string][]
+  files: [string, string][],
 ): Promise<Server> {
   // serverの設定
   const app = express();

@@ -13,7 +13,7 @@ describe('mock-mokk', () => {
       app = await mokkServer(
         PORT_FOR_TEST,
         ['index.html', 'index.htm'],
-        [['/', resolve('test', '$')]]
+        [['/', resolve('test', '$')]],
       );
     }).toConsoleOutputMatchingSnapshot();
   });
@@ -31,7 +31,7 @@ describe('mock-mokk', () => {
         expect(
           await (
             await client.get(`http://localhost:${PORT_FOR_TEST}`)
-          ).data
+          ).data,
         ).toMatchSnapshot();
       }).toConsoleOutputMatchingSnapshot('log');
     }).toConsoleOutputMatchingSnapshot('error');
@@ -43,7 +43,7 @@ describe('mock-mokk', () => {
           await thrown(async () => {
             const client = axios.create();
             await client.get(`http://localhost:${PORT_FOR_TEST}/notexist.txt`);
-          })
+          }),
         ).toThrowErrorMatchingSnapshot();
       }).toConsoleOutputMatchingSnapshot('log');
     }).toConsoleOutputMatchingSnapshot('error');
@@ -54,9 +54,9 @@ describe('mock-mokk', () => {
         await mokkServer(
           PORT_FOR_TEST,
           ['index.html', 'index.htm'],
-          [['/', resolve('test', '$')]]
+          [['/', resolve('test', '$')]],
         );
-      })
+      }),
     ).toThrowErrorMatchingSnapshot();
   });
 });

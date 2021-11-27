@@ -2,7 +2,7 @@ import { SnapshotStateType } from 'jest-snapshot';
 
 function toFailMatchingSnapshot(
   this: jest.MatcherContext,
-  received: () => unknown
+  received: () => unknown,
 ): jest.CustomMatcherResult | Promise<jest.CustomMatcherResult> {
   let state: { ex: unknown } | undefined;
   const { suppressedErrors, snapshotState } = this as typeof this & {
