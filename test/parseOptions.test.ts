@@ -45,6 +45,30 @@ describe('parseOptions', () => {
       files: [['/', resolve('test', '$')]],
     });
   });
+  test('port', () => {
+    expect(parseOptions(['--port', '80', '/=.'])).toEqual({
+      port: 80,
+      index: ['index.html', 'index.htm'],
+      files: [['/', resolve('.')]],
+    });
+    expect(parseOptions(['-p', '80', '/=.'])).toEqual({
+      port: 80,
+      index: ['index.html', 'index.htm'],
+      files: [['/', resolve('.')]],
+    });
+  });
+  test('index', () => {
+    expect(parseOptions(['--index', 'test.html', '/=.'])).toEqual({
+      port: 50000,
+      index: ['test.html'],
+      files: [['/', resolve('.')]],
+    });
+    expect(parseOptions(['-i', 'test.html/test.htm', '/=.'])).toEqual({
+      port: 50000,
+      index: ['test.html', 'test.htm'],
+      files: [['/', resolve('.')]],
+    });
+  });
   test('help', () => {
     expect(() => {
       expect(() => {
