@@ -1,12 +1,10 @@
-export async function thrown(
-  proc: () => Promise<unknown>
-): Promise<() => void> {
+export async function thrown<T>(proc: () => Promise<T>): Promise<() => T> {
   try {
-    await proc();
+    const result = await proc();
+    return () => result;
   } catch (ex: unknown) {
     return () => {
       throw ex;
     };
   }
-  fail('procedure did not throw');
 }
