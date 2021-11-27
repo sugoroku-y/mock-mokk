@@ -49,11 +49,19 @@ describe('no-wait .toExitProcess', () => {
           exitParam && process.exit(...exitParam);
         }).toExitProcess(...toExitProcessParam);
       } else {
+        const snapshot = !exitParam
+          ? `"Received function did not exit process."`
+          : !toExitProcessParam.length
+          ? `"Received function exit process, but not expected."`
+          : `
+"Excepted process exit code: ${toExitProcessParam[0]}
+Received process exit code: ${exitParam[0] ?? 0}"
+`;
         expect(() =>
           expect(() => {
             exitParam && process.exit(...exitParam);
           }).toExitProcess(...toExitProcessParam)
-        ).toThrowErrorMatchingSnapshot();
+        ).toThrowErrorMatchingInlineSnapshot(snapshot);
       }
     }
   );
@@ -93,6 +101,14 @@ describe('async .toExitProcess', () => {
           exitParam && process.exit(...exitParam);
         }).toExitProcess(...toExitProcessParam);
       } else {
+        const snapshot = !exitParam
+          ? `"Received function did not exit process."`
+          : !toExitProcessParam.length
+          ? `"Received function exit process, but not expected."`
+          : `
+"Excepted process exit code: ${toExitProcessParam[0]}
+Received process exit code: ${exitParam[0] ?? 0}"
+`;
         expect(
           await thrown(async () => {
             await expect(async () => {
@@ -100,7 +116,7 @@ describe('async .toExitProcess', () => {
               exitParam && process.exit(...exitParam);
             }).toExitProcess(...toExitProcessParam);
           })
-        ).toThrowErrorMatchingSnapshot();
+        ).toThrowErrorMatchingInlineSnapshot(snapshot);
       }
     }
   );
@@ -139,11 +155,16 @@ describe('no-wait .not.toExitProcess', () => {
           exitParam && process.exit(...exitParam);
         }).not.toExitProcess(...toExitProcessParam);
       } else {
+        const snapshot = `"Received function exit process${
+          toExitProcessParam.length
+            ? ` with ${toExitProcessParam[0]}`
+            : ', but not expected.'
+        }"`;
         expect(() =>
           expect(() => {
             exitParam && process.exit(...exitParam);
           }).not.toExitProcess(...toExitProcessParam)
-        ).toThrowErrorMatchingSnapshot();
+        ).toThrowErrorMatchingInlineSnapshot(snapshot);
       }
     }
   );
@@ -183,6 +204,11 @@ describe('async .not.toExitProcess', () => {
           exitParam && process.exit(...exitParam);
         }).not.toExitProcess(...toExitProcessParam);
       } else {
+        const snapshot = `"Received function exit process${
+          toExitProcessParam.length
+            ? ` with ${toExitProcessParam[0]}`
+            : ', but not expected.'
+        }"`;
         expect(
           await thrown(async () => {
             await expect(async () => {
@@ -190,7 +216,7 @@ describe('async .not.toExitProcess', () => {
               exitParam && process.exit(...exitParam);
             }).not.toExitProcess(...toExitProcessParam);
           })
-        ).toThrowErrorMatchingSnapshot();
+        ).toThrowErrorMatchingInlineSnapshot(snapshot);
       }
     }
   );
@@ -202,7 +228,7 @@ describe('exception in .toExitProcess', () => {
       expect((): void => {
         throw new Error('normal');
       }).toExitProcess();
-    }).toThrow('normal');
+    }).toThrowErrorMatchingInlineSnapshot(`"normal"`);
   });
   test('async', async () => {
     expect(
@@ -212,7 +238,7 @@ describe('exception in .toExitProcess', () => {
           throw new Error('async');
         }).toExitProcess();
       })
-    ).toThrow('async');
+    ).toThrowErrorMatchingInlineSnapshot(`"async"`);
   });
 });
 
@@ -222,7 +248,7 @@ describe('exception in .not.toExitProcess', () => {
       expect((): void => {
         throw new Error('normal');
       }).not.toExitProcess();
-    }).toThrow('normal');
+    }).toThrowErrorMatchingInlineSnapshot(`"normal"`);
   });
   test('async', async () => {
     expect(
@@ -232,6 +258,6 @@ describe('exception in .not.toExitProcess', () => {
           throw new Error('async');
         }).not.toExitProcess();
       })
-    ).toThrow('async');
+    ).toThrowErrorMatchingInlineSnapshot(`"async"`);
   });
 });
