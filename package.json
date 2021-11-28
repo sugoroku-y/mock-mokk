@@ -5,7 +5,8 @@
   "main": "./lib/main.js",
   "bin": "./bin/mock-mokk.js",
   "scripts": {
-    "lint": "eslint src/ test/ --cache",
+    "fix": "eslint ./ --fix",
+    "lint": "eslint ./ --cache",
     "build": "tsc -p src/tsconfig.json",
     "test": "jest"
   },
