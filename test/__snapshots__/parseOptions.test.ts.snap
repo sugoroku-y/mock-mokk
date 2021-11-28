@@ -12,10 +12,10 @@ Array [
 exports[`parseOptions empty location: toConsoleOutputMatchingSnapshot:log 1`] = `
 Array [
   Array [
-    "Version: mock-mokk 0.0.1
+    "Version: @sugoroku-y/mock-mokk 0.0.1
 Usage:
-  npx mock-mokk [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
-  npx mock-mokk --help
+  npx @sugoroku-y/mock-mokk [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
+  npx @sugoroku-y/mock-mokk --help
 
 Description:
   簡易HTTPサーバーを起動します。
@@ -54,10 +54,10 @@ Array [
 exports[`parseOptions empty path: toConsoleOutputMatchingSnapshot:log 1`] = `
 Array [
   Array [
-    "Version: mock-mokk 0.0.1
+    "Version: @sugoroku-y/mock-mokk 0.0.1
 Usage:
-  npx mock-mokk [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
-  npx mock-mokk --help
+  npx @sugoroku-y/mock-mokk [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
+  npx @sugoroku-y/mock-mokk --help
 
 Description:
   簡易HTTPサーバーを起動します。
@@ -89,10 +89,10 @@ exports[`parseOptions help: toConsoleOutputMatchingSnapshot:error 1`] = `Array [
 exports[`parseOptions help: toConsoleOutputMatchingSnapshot:log 1`] = `
 Array [
   Array [
-    "Version: mock-mokk 0.0.1
+    "Version: @sugoroku-y/mock-mokk 0.0.1
 Usage:
-  npx mock-mokk [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
-  npx mock-mokk --help
+  npx @sugoroku-y/mock-mokk [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
+  npx @sugoroku-y/mock-mokk --help
 
 Description:
   簡易HTTPサーバーを起動します。
@@ -131,10 +131,10 @@ Array [
 exports[`parseOptions no entry: toConsoleOutputMatchingSnapshot:log 1`] = `
 Array [
   Array [
-    "Version: mock-mokk 0.0.1
+    "Version: @sugoroku-y/mock-mokk 0.0.1
 Usage:
-  npx mock-mokk [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
-  npx mock-mokk --help
+  npx @sugoroku-y/mock-mokk [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
+  npx @sugoroku-y/mock-mokk --help
 
 Description:
   簡易HTTPサーバーを起動します。
@@ -173,10 +173,10 @@ Array [
 exports[`parseOptions no equal: toConsoleOutputMatchingSnapshot:log 1`] = `
 Array [
   Array [
-    "Version: mock-mokk 0.0.1
+    "Version: @sugoroku-y/mock-mokk 0.0.1
 Usage:
-  npx mock-mokk [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
-  npx mock-mokk --help
+  npx @sugoroku-y/mock-mokk [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
+  npx @sugoroku-y/mock-mokk --help
 
 Description:
   簡易HTTPサーバーを起動します。
@@ -215,10 +215,10 @@ Array [
 exports[`parseOptions not exist: toConsoleOutputMatchingSnapshot:log 1`] = `
 Array [
   Array [
-    "Version: mock-mokk 0.0.1
+    "Version: @sugoroku-y/mock-mokk 0.0.1
 Usage:
-  npx mock-mokk [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
-  npx mock-mokk --help
+  npx @sugoroku-y/mock-mokk [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
+  npx @sugoroku-y/mock-mokk --help
 
 Description:
   簡易HTTPサーバーを起動します。
@@ -257,10 +257,10 @@ Array [
 exports[`parseOptions not start slash: toConsoleOutputMatchingSnapshot:log 1`] = `
 Array [
   Array [
-    "Version: mock-mokk 0.0.1
+    "Version: @sugoroku-y/mock-mokk 0.0.1
 Usage:
-  npx mock-mokk [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
-  npx mock-mokk --help
+  npx @sugoroku-y/mock-mokk [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
+  npx @sugoroku-y/mock-mokk --help
 
 Description:
   簡易HTTPサーバーを起動します。
