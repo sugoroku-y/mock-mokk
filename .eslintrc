@@ -4,10 +4,9 @@
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
-        "prettier"
+        "plugin:prettier/recommended"
     ],
     "plugins": [
-        "prettier",
         "@typescript-eslint"
     ],
     "parser": "@typescript-eslint/parser",
@@ -19,7 +18,6 @@
         "node": true
     },
     "rules": {
-        "prettier/prettier": "error",
         "@typescript-eslint/restrict-template-expressions": "off"
     }
 }
