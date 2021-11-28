@@ -60,10 +60,10 @@ Received process exit code: ${exitParam[0] ?? 0}"
         expect(() =>
           expect(() => {
             exitParam && process.exit(...exitParam);
-          }).toExitProcess(...toExitProcessParam)
+          }).toExitProcess(...toExitProcessParam),
         ).toThrowErrorMatchingInlineSnapshot(snapshot);
       }
-    }
+    },
   );
 });
 
@@ -115,10 +115,10 @@ Received process exit code: ${exitParam[0] ?? 0}"
               await new Promise(r => setTimeout(r, 1));
               exitParam && process.exit(...exitParam);
             }).toExitProcess(...toExitProcessParam);
-          })
+          }),
         ).toThrowErrorMatchingInlineSnapshot(snapshot);
       }
-    }
+    },
   );
 });
 
@@ -163,10 +163,10 @@ describe('no-wait .not.toExitProcess', () => {
         expect(() =>
           expect(() => {
             exitParam && process.exit(...exitParam);
-          }).not.toExitProcess(...toExitProcessParam)
+          }).not.toExitProcess(...toExitProcessParam),
         ).toThrowErrorMatchingInlineSnapshot(snapshot);
       }
-    }
+    },
   );
 });
 
@@ -215,10 +215,10 @@ describe('async .not.toExitProcess', () => {
               await new Promise(r => setTimeout(r, 1));
               exitParam && process.exit(...exitParam);
             }).not.toExitProcess(...toExitProcessParam);
-          })
+          }),
         ).toThrowErrorMatchingInlineSnapshot(snapshot);
       }
-    }
+    },
   );
 });
 
@@ -237,7 +237,7 @@ describe('exception in .toExitProcess', () => {
           await new Promise(r => setTimeout(r, 5000));
           throw new Error('async');
         }).toExitProcess();
-      })
+      }),
     ).toThrowErrorMatchingInlineSnapshot(`"async"`);
   });
 });
@@ -257,7 +257,7 @@ describe('exception in .not.toExitProcess', () => {
           await new Promise(r => setTimeout(r, 5000));
           throw new Error('async');
         }).not.toExitProcess();
-      })
+      }),
     ).toThrowErrorMatchingInlineSnapshot(`"async"`);
   });
 });
