@@ -1,1 +1,7 @@
-bin/
+/*
+!/src/
+!/test/
+/src/tsconfig.json
+/test/tsconfig.json
+/test/__snapshots__/
+/test/$/
