@@ -1,7 +1,14 @@
 {
-  "name": "mock-mokk",
+  "name": "@sugoroku-y/mock-mokk",
   "version": "0.0.1",
-  "private": true,
+  "description": "Mock HTTP Server",
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "url": "https://github.com/sugoroku-y/mock-mokk.git"
+  },
   "main": "./lib/main.js",
   "bin": "./bin/mock-mokk.js",
   "scripts": {
