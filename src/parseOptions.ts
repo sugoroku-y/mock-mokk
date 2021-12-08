@@ -59,20 +59,20 @@ export function parseOptions(args?: Iterable<string>) {
       help: {
         alias: 'h',
         type: 'boolean',
-        nature: 'alone',
+        alone: true,
         describe: 'このヘルプを表示します。',
       },
       port: {
         alias: 'p',
         type: 'number',
-        nature: ['default', 50000],
+        default: 50000,
         example: '#listen_port',
         describe: 'サーバーのポート番号を指定します。',
       },
       index: {
         alias: 'i',
         type: 'string',
-        nature: ['default', 'index.html/index.htm'],
+        default: 'index.html/index.htm',
         example: 'index.html',
         describe: `
       URLが/で終わっていた場合に補完されるファイル名を指定します。
