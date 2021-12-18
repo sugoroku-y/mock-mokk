@@ -1,8 +1,8 @@
 import { homedir } from 'os';
 import { resolve } from 'path';
 import { parseOptions } from '../src/parseOptions';
-import './toExitProcess';
-import './toConsoleOutputMatchingSnapshot';
+import 'jest-to-exit-process';
+import { consoleOutput } from './jest-utils';
 
 describe('parseOptions', () => {
   test('minimum', () => {
@@ -70,52 +70,320 @@ describe('parseOptions', () => {
     });
   });
   test('help', () => {
-    expect(() => {
-      expect(() => {
+    expect(
+      consoleOutput(['error', 'log'], () => {
         expect(() => parseOptions(['--help'])).toExitProcess(0);
-      }).toConsoleOutputMatchingSnapshot('log');
-    }).toConsoleOutputMatchingSnapshot('error');
+      }),
+    ).toMatchInlineSnapshot(`
+      Object {
+        "error": Array [],
+        "log": Array [
+          Array [
+            "Version: @sugoroku-y/mock-mokk 0.0.1
+      Usage:
+        npx @sugoroku-y/mock-mokk [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
+        npx @sugoroku-y/mock-mokk --help
+
+      Description:
+        簡易HTTPサーバーを起動します。
+
+      Options:
+        --help, -h
+          このヘルプを表示します。
+        --port, -p #listen_port
+          サーバーのポート番号を指定します。
+        --index, -i index.html
+          URLが/で終わっていた場合に補完されるファイル名を指定します。
+          /で区切ることで複数のファイル名を指定できます。
+        [--] [/location/to/resource=path/to/file/or/directory...]
+          レスポンスとして返すファイルの位置を設定するエントリーを指定します。
+          {URLのパス部分}={割り当てられるファイル、もしくはディレクトリーの位置}の形式で指定します。
+          URLのパスは/から始まっている必要があります。
+          ファイル/ディレクトリーに相対パスを指定した場合は実行時のカレントディレクトリを基準とします。
+          ファイル/ディレクトリーに$/で始まるパスを指定した場合はホームディレクトリに$/以降のパスを連結したものになります。
+          ファイル/ディレクトリーには$ENVの形で環境変数を指定することができます。
+          ファイル/ディレクトリーに$そのものを指定したい場合には$$としてください。
+          ファイルは指定された順に検索していき、最初に見つかったものを返します。
+      ",
+          ],
+        ],
+      }
+    `);
   });
   test('no entry', () => {
-    expect(() => {
-      expect(() => {
+    expect(
+      consoleOutput(['error', 'log'], () => {
         expect(() => parseOptions([])).toExitProcess(-1);
-      }).toConsoleOutputMatchingSnapshot('log');
-    }).toConsoleOutputMatchingSnapshot('error');
+      }),
+    ).toMatchInlineSnapshot(`
+      Object {
+        "error": Array [
+          Array [
+            "エントリーが指定されていません。
+      ",
+          ],
+        ],
+        "log": Array [
+          Array [
+            "Version: @sugoroku-y/mock-mokk 0.0.1
+      Usage:
+        npx @sugoroku-y/mock-mokk [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
+        npx @sugoroku-y/mock-mokk --help
+
+      Description:
+        簡易HTTPサーバーを起動します。
+
+      Options:
+        --help, -h
+          このヘルプを表示します。
+        --port, -p #listen_port
+          サーバーのポート番号を指定します。
+        --index, -i index.html
+          URLが/で終わっていた場合に補完されるファイル名を指定します。
+          /で区切ることで複数のファイル名を指定できます。
+        [--] [/location/to/resource=path/to/file/or/directory...]
+          レスポンスとして返すファイルの位置を設定するエントリーを指定します。
+          {URLのパス部分}={割り当てられるファイル、もしくはディレクトリーの位置}の形式で指定します。
+          URLのパスは/から始まっている必要があります。
+          ファイル/ディレクトリーに相対パスを指定した場合は実行時のカレントディレクトリを基準とします。
+          ファイル/ディレクトリーに$/で始まるパスを指定した場合はホームディレクトリに$/以降のパスを連結したものになります。
+          ファイル/ディレクトリーには$ENVの形で環境変数を指定することができます。
+          ファイル/ディレクトリーに$そのものを指定したい場合には$$としてください。
+          ファイルは指定された順に検索していき、最初に見つかったものを返します。
+      ",
+          ],
+        ],
+      }
+    `);
   });
   test('no equal', () => {
-    expect(() => {
-      expect(() => {
+    expect(
+      consoleOutput(['error', 'log'], () => {
         expect(() => parseOptions(['test'])).toExitProcess(-1);
-      }).toConsoleOutputMatchingSnapshot('log');
-    }).toConsoleOutputMatchingSnapshot('error');
+      }),
+    ).toMatchInlineSnapshot(`
+      Object {
+        "error": Array [
+          Array [
+            "エントリーに\`='がありません。: test
+      ",
+          ],
+        ],
+        "log": Array [
+          Array [
+            "Version: @sugoroku-y/mock-mokk 0.0.1
+      Usage:
+        npx @sugoroku-y/mock-mokk [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
+        npx @sugoroku-y/mock-mokk --help
+
+      Description:
+        簡易HTTPサーバーを起動します。
+
+      Options:
+        --help, -h
+          このヘルプを表示します。
+        --port, -p #listen_port
+          サーバーのポート番号を指定します。
+        --index, -i index.html
+          URLが/で終わっていた場合に補完されるファイル名を指定します。
+          /で区切ることで複数のファイル名を指定できます。
+        [--] [/location/to/resource=path/to/file/or/directory...]
+          レスポンスとして返すファイルの位置を設定するエントリーを指定します。
+          {URLのパス部分}={割り当てられるファイル、もしくはディレクトリーの位置}の形式で指定します。
+          URLのパスは/から始まっている必要があります。
+          ファイル/ディレクトリーに相対パスを指定した場合は実行時のカレントディレクトリを基準とします。
+          ファイル/ディレクトリーに$/で始まるパスを指定した場合はホームディレクトリに$/以降のパスを連結したものになります。
+          ファイル/ディレクトリーには$ENVの形で環境変数を指定することができます。
+          ファイル/ディレクトリーに$そのものを指定したい場合には$$としてください。
+          ファイルは指定された順に検索していき、最初に見つかったものを返します。
+      ",
+          ],
+        ],
+      }
+    `);
   });
   test('empty location', () => {
-    expect(() => {
-      expect(() => {
+    expect(
+      consoleOutput(['error', 'log'], () => {
         expect(() => parseOptions(['=test'])).toExitProcess(-1);
-      }).toConsoleOutputMatchingSnapshot('log');
-    }).toConsoleOutputMatchingSnapshot('error');
+      }),
+    ).toMatchInlineSnapshot(`
+      Object {
+        "error": Array [
+          Array [
+            "locationが空です。: =test
+      ",
+          ],
+        ],
+        "log": Array [
+          Array [
+            "Version: @sugoroku-y/mock-mokk 0.0.1
+      Usage:
+        npx @sugoroku-y/mock-mokk [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
+        npx @sugoroku-y/mock-mokk --help
+
+      Description:
+        簡易HTTPサーバーを起動します。
+
+      Options:
+        --help, -h
+          このヘルプを表示します。
+        --port, -p #listen_port
+          サーバーのポート番号を指定します。
+        --index, -i index.html
+          URLが/で終わっていた場合に補完されるファイル名を指定します。
+          /で区切ることで複数のファイル名を指定できます。
+        [--] [/location/to/resource=path/to/file/or/directory...]
+          レスポンスとして返すファイルの位置を設定するエントリーを指定します。
+          {URLのパス部分}={割り当てられるファイル、もしくはディレクトリーの位置}の形式で指定します。
+          URLのパスは/から始まっている必要があります。
+          ファイル/ディレクトリーに相対パスを指定した場合は実行時のカレントディレクトリを基準とします。
+          ファイル/ディレクトリーに$/で始まるパスを指定した場合はホームディレクトリに$/以降のパスを連結したものになります。
+          ファイル/ディレクトリーには$ENVの形で環境変数を指定することができます。
+          ファイル/ディレクトリーに$そのものを指定したい場合には$$としてください。
+          ファイルは指定された順に検索していき、最初に見つかったものを返します。
+      ",
+          ],
+        ],
+      }
+    `);
   });
   test('empty path', () => {
-    expect(() => {
-      expect(() => {
+    expect(
+      consoleOutput(['error', 'log'], () => {
         expect(() => parseOptions(['test='])).toExitProcess(-1);
-      }).toConsoleOutputMatchingSnapshot('log');
-    }).toConsoleOutputMatchingSnapshot('error');
+      }),
+    ).toMatchInlineSnapshot(`
+      Object {
+        "error": Array [
+          Array [
+            "pathが空です。: test=
+      ",
+          ],
+        ],
+        "log": Array [
+          Array [
+            "Version: @sugoroku-y/mock-mokk 0.0.1
+      Usage:
+        npx @sugoroku-y/mock-mokk [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
+        npx @sugoroku-y/mock-mokk --help
+
+      Description:
+        簡易HTTPサーバーを起動します。
+
+      Options:
+        --help, -h
+          このヘルプを表示します。
+        --port, -p #listen_port
+          サーバーのポート番号を指定します。
+        --index, -i index.html
+          URLが/で終わっていた場合に補完されるファイル名を指定します。
+          /で区切ることで複数のファイル名を指定できます。
+        [--] [/location/to/resource=path/to/file/or/directory...]
+          レスポンスとして返すファイルの位置を設定するエントリーを指定します。
+          {URLのパス部分}={割り当てられるファイル、もしくはディレクトリーの位置}の形式で指定します。
+          URLのパスは/から始まっている必要があります。
+          ファイル/ディレクトリーに相対パスを指定した場合は実行時のカレントディレクトリを基準とします。
+          ファイル/ディレクトリーに$/で始まるパスを指定した場合はホームディレクトリに$/以降のパスを連結したものになります。
+          ファイル/ディレクトリーには$ENVの形で環境変数を指定することができます。
+          ファイル/ディレクトリーに$そのものを指定したい場合には$$としてください。
+          ファイルは指定された順に検索していき、最初に見つかったものを返します。
+      ",
+          ],
+        ],
+      }
+    `);
   });
   test('not start slash', () => {
-    expect(() => {
-      expect(() => {
+    expect(
+      consoleOutput(['error', 'log'], () => {
         expect(() => parseOptions(['test=test'])).toExitProcess(-1);
-      }).toConsoleOutputMatchingSnapshot('log');
-    }).toConsoleOutputMatchingSnapshot('error');
+      }),
+    ).toMatchInlineSnapshot(`
+      Object {
+        "error": Array [
+          Array [
+            "locationは\`/'で始まっている必要があります。: test=test
+      ",
+          ],
+        ],
+        "log": Array [
+          Array [
+            "Version: @sugoroku-y/mock-mokk 0.0.1
+      Usage:
+        npx @sugoroku-y/mock-mokk [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
+        npx @sugoroku-y/mock-mokk --help
+
+      Description:
+        簡易HTTPサーバーを起動します。
+
+      Options:
+        --help, -h
+          このヘルプを表示します。
+        --port, -p #listen_port
+          サーバーのポート番号を指定します。
+        --index, -i index.html
+          URLが/で終わっていた場合に補完されるファイル名を指定します。
+          /で区切ることで複数のファイル名を指定できます。
+        [--] [/location/to/resource=path/to/file/or/directory...]
+          レスポンスとして返すファイルの位置を設定するエントリーを指定します。
+          {URLのパス部分}={割り当てられるファイル、もしくはディレクトリーの位置}の形式で指定します。
+          URLのパスは/から始まっている必要があります。
+          ファイル/ディレクトリーに相対パスを指定した場合は実行時のカレントディレクトリを基準とします。
+          ファイル/ディレクトリーに$/で始まるパスを指定した場合はホームディレクトリに$/以降のパスを連結したものになります。
+          ファイル/ディレクトリーには$ENVの形で環境変数を指定することができます。
+          ファイル/ディレクトリーに$そのものを指定したい場合には$$としてください。
+          ファイルは指定された順に検索していき、最初に見つかったものを返します。
+      ",
+          ],
+        ],
+      }
+    `);
   });
   test('not exist', () => {
-    expect(() => {
-      expect(() => {
+    expect(
+      consoleOutput(['error', 'log'], () => {
         expect(() => parseOptions(['/test=test/not-exist'])).toExitProcess(-1);
-      }).toConsoleOutputMatchingSnapshot('log');
-    }).toConsoleOutputMatchingSnapshot('error');
+      }),
+    ).toMatchInlineSnapshot(`
+      Object {
+        "error": Array [
+          Array [
+            "pathが見つかりません。: /test=test/not-exist
+      ",
+          ],
+        ],
+        "log": Array [
+          Array [
+            "Version: @sugoroku-y/mock-mokk 0.0.1
+      Usage:
+        npx @sugoroku-y/mock-mokk [--port #listen_port] [--index index.html] [--] [/location/to/resource=path/to/file/or/directory...]
+        npx @sugoroku-y/mock-mokk --help
+
+      Description:
+        簡易HTTPサーバーを起動します。
+
+      Options:
+        --help, -h
+          このヘルプを表示します。
+        --port, -p #listen_port
+          サーバーのポート番号を指定します。
+        --index, -i index.html
+          URLが/で終わっていた場合に補完されるファイル名を指定します。
+          /で区切ることで複数のファイル名を指定できます。
+        [--] [/location/to/resource=path/to/file/or/directory...]
+          レスポンスとして返すファイルの位置を設定するエントリーを指定します。
+          {URLのパス部分}={割り当てられるファイル、もしくはディレクトリーの位置}の形式で指定します。
+          URLのパスは/から始まっている必要があります。
+          ファイル/ディレクトリーに相対パスを指定した場合は実行時のカレントディレクトリを基準とします。
+          ファイル/ディレクトリーに$/で始まるパスを指定した場合はホームディレクトリに$/以降のパスを連結したものになります。
+          ファイル/ディレクトリーには$ENVの形で環境変数を指定することができます。
+          ファイル/ディレクトリーに$そのものを指定したい場合には$$としてください。
+          ファイルは指定された順に検索していき、最初に見つかったものを返します。
+      ",
+          ],
+        ],
+      }
+    `);
   });
 });
