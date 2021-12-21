@@ -2,7 +2,7 @@ import { resolve } from 'path';
 import { Server } from 'http';
 import axios from 'axios';
 import { mokkServer } from '../src/mokkServer';
-import { consoleOutput, unpromise } from './jest-utils';
+import { consoleOutput } from './jest-utils';
 
 describe('mock-mokk', () => {
   const PORT_FOR_TEST = 50001;
@@ -61,12 +61,10 @@ describe('mock-mokk', () => {
   });
   test('not found', async () => {
     const output = await consoleOutput(['error', 'log'], async () => {
-      expect(
-        await unpromise(async () => {
+      await expect(async () => {
           const client = axios.create();
           await client.get(`http://localhost:${PORT_FOR_TEST}/notexist.txt`);
-        }),
-      ).toThrowErrorMatchingInlineSnapshot(
+      }).rejects.toThrowErrorMatchingInlineSnapshot(
         `"Request failed with status code 404"`,
       );
     });
@@ -82,15 +80,13 @@ describe('mock-mokk', () => {
     `);
   });
   test('port used', async () => {
-    expect(
-      await unpromise(async () => {
+    await expect(async () => {
         await mokkServer(
           PORT_FOR_TEST,
           ['index.html', 'index.htm'],
           [['/', resolve('test', '$')]],
         );
-      }),
-    ).toThrowErrorMatchingInlineSnapshot(
+    }).rejects.toThrowErrorMatchingInlineSnapshot(
       `"listen EADDRINUSE: address already in use :::50001"`,
     );
   });
