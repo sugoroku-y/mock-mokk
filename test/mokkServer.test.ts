@@ -9,7 +9,7 @@ describe('mock-mokk', () => {
   let app: Server;
   beforeAll(async () => {
     expect(
-      await consoleOutput(['log'], async () => {
+      await consoleOutput(async () => {
         app = await mokkServer(
           PORT_FOR_TEST,
           ['index.html', 'index.htm'],
@@ -34,7 +34,7 @@ describe('mock-mokk', () => {
     });
   });
   test('get', async () => {
-    const output = await consoleOutput(['error', 'log'], async () => {
+    const output = await consoleOutput(async () => {
       const client = axios.create();
       expect(await (await client.get(`http://localhost:${PORT_FOR_TEST}`)).data)
         .toMatchInlineSnapshot(`
@@ -52,18 +52,13 @@ describe('mock-mokk', () => {
         </html>"
       `);
     });
-    expect(output).toMatchInlineSnapshot(`
-      Object {
-        "error": Array [],
-        "log": Array [],
-      }
-    `);
+    expect(output).toMatchInlineSnapshot(`Object {}`);
   });
   test('not found', async () => {
-    const output = await consoleOutput(['error', 'log'], async () => {
+    const output = await consoleOutput(async () => {
       await expect(async () => {
-          const client = axios.create();
-          await client.get(`http://localhost:${PORT_FOR_TEST}/notexist.txt`);
+        const client = axios.create();
+        await client.get(`http://localhost:${PORT_FOR_TEST}/notexist.txt`);
       }).rejects.toThrowErrorMatchingInlineSnapshot(
         `"Request failed with status code 404"`,
       );
@@ -75,17 +70,16 @@ describe('mock-mokk', () => {
             "ファイルが見つかりません。: /notexist.txt",
           ],
         ],
-        "log": Array [],
       }
     `);
   });
   test('port used', async () => {
     await expect(async () => {
-        await mokkServer(
-          PORT_FOR_TEST,
-          ['index.html', 'index.htm'],
-          [['/', resolve('test', '$')]],
-        );
+      await mokkServer(
+        PORT_FOR_TEST,
+        ['index.html', 'index.htm'],
+        [['/', resolve('test', '$')]],
+      );
     }).rejects.toThrowErrorMatchingInlineSnapshot(
       `"listen EADDRINUSE: address already in use :::50001"`,
     );

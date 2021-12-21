@@ -71,12 +71,11 @@ describe('parseOptions', () => {
   });
   test('help', () => {
     expect(
-      consoleOutput(['error', 'log'], () => {
+      consoleOutput(() => {
         expect(() => parseOptions(['--help'])).toExitProcess(0);
       }),
     ).toMatchInlineSnapshot(`
       Object {
-        "error": Array [],
         "log": Array [
           Array [
             "Version: @sugoroku-y/mock-mokk 0.0.1
@@ -112,7 +111,7 @@ describe('parseOptions', () => {
   });
   test('no entry', () => {
     expect(
-      consoleOutput(['error', 'log'], () => {
+      consoleOutput(() => {
         expect(() => parseOptions([])).toExitProcess(-1);
       }),
     ).toMatchInlineSnapshot(`
@@ -158,7 +157,7 @@ describe('parseOptions', () => {
   });
   test('no equal', () => {
     expect(
-      consoleOutput(['error', 'log'], () => {
+      consoleOutput(() => {
         expect(() => parseOptions(['test'])).toExitProcess(-1);
       }),
     ).toMatchInlineSnapshot(`
@@ -204,7 +203,7 @@ describe('parseOptions', () => {
   });
   test('empty location', () => {
     expect(
-      consoleOutput(['error', 'log'], () => {
+      consoleOutput(() => {
         expect(() => parseOptions(['=test'])).toExitProcess(-1);
       }),
     ).toMatchInlineSnapshot(`
@@ -250,7 +249,7 @@ describe('parseOptions', () => {
   });
   test('empty path', () => {
     expect(
-      consoleOutput(['error', 'log'], () => {
+      consoleOutput(() => {
         expect(() => parseOptions(['test='])).toExitProcess(-1);
       }),
     ).toMatchInlineSnapshot(`
@@ -296,7 +295,7 @@ describe('parseOptions', () => {
   });
   test('not start slash', () => {
     expect(
-      consoleOutput(['error', 'log'], () => {
+      consoleOutput(() => {
         expect(() => parseOptions(['test=test'])).toExitProcess(-1);
       }),
     ).toMatchInlineSnapshot(`
@@ -342,7 +341,7 @@ describe('parseOptions', () => {
   });
   test('not exist', () => {
     expect(
-      consoleOutput(['error', 'log'], () => {
+      consoleOutput(() => {
         expect(() => parseOptions(['/test=test/not-exist'])).toExitProcess(-1);
       }),
     ).toMatchInlineSnapshot(`

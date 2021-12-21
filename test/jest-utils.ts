@@ -1,28 +1,28 @@
+const ConsoleOutputNames = ['log', 'debug', 'info', 'warn', 'error'] as const;
+type ConsoleOutputResult = Partial<
+  Record<typeof ConsoleOutputNames[number], unknown[]>
+>;
 
-export function consoleOutput<
-  T,
-  NAMES extends Array<'log' | 'debug' | 'info' | 'warn' | 'error'>,
->(
-  names: NAMES,
+export function consoleOutput<T>(
   received: () => Promise<T>,
-): Promise<Record<NAMES[number], unknown[]>>;
-export function consoleOutput<
-  T,
-  NAMES extends Array<'log' | 'debug' | 'info' | 'warn' | 'error'>,
->(names: NAMES, received: () => T): Record<NAMES[number], unknown[]>;
+): Promise<ConsoleOutputResult>;
+export function consoleOutput<T>(received: () => T): ConsoleOutputResult;
 export function consoleOutput(
-  names: Array<'log' | 'debug' | 'info' | 'warn' | 'error'>,
   received: () => unknown,
-):
-  | Record<'log' | 'debug' | 'info' | 'warn' | 'error', unknown[]>
-  | Promise<Record<'log' | 'debug' | 'info' | 'warn' | 'error', unknown[]>> {
-  const methods = names.map(name =>
-    jest.spyOn(console, name).mockImplementation(),
+): ConsoleOutputResult | Promise<ConsoleOutputResult> {
+  const methods = ConsoleOutputNames.map(
+    name => [name, jest.spyOn(console, name).mockImplementation()] as const,
   );
-  const output = () =>
-    Object.fromEntries(
-      methods.map((method, i) => [names[i], method.mock.calls]),
-    ) as Record<typeof names[number], unknown[]>;
+  const output = () => {
+    const map: ConsoleOutputResult = {};
+    for (const [name, method] of methods) {
+      if (method.mock.calls.length === 0) {
+        continue;
+      }
+      map[name] = method.mock.calls;
+    }
+    return map;
+  };
   let restorable = true;
   try {
     const result = received();
@@ -33,7 +33,7 @@ export function consoleOutput(
           await result;
           return output();
         } finally {
-          for (const method of methods) {
+          for (const [, method] of methods) {
             method.mockRestore();
           }
         }
@@ -42,7 +42,7 @@ export function consoleOutput(
     return output();
   } finally {
     if (restorable) {
-      for (const method of methods) {
+      for (const [, method] of methods) {
         method.mockRestore();
       }
     }
